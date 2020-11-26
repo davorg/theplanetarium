@@ -1,0 +1,57 @@
+body {
+  background-image: url(planetarium.png);
+  background-position: 100% 0%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #9f3c33;
+}
+
+#header {
+  margin: 0 0 0 50px;
+  font-size: 2em;
+  padding: 0;
+}
+
+#header h1 {
+  font-size: 2.5em;
+}
+
+#content {
+  margin: 50px 0 0 50px;
+  font-size: 1.75em;
+}
+
+#content a:link, #content a:active {
+  text-decoration: none;
+  color: #9f3c33;
+}
+
+#content a:visited {
+  text-decoration: none;
+  color: #a5453c;
+}
+
+#content a:hover {
+  text-decoration: underline;
+}  
+
+#content ul {
+  margin-bottom: 1em;
+}
+
+#credits {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  color: #000;
+  text-align: right;
+  font-weight: bold;
+}
+
+a:link, a:active, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
