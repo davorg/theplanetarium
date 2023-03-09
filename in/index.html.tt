@@ -97,36 +97,13 @@
             <th>Code</th>
           </thead>
           <tbody>
+[% FOR p IN planets.sort('name') -%]
             <tr>
-              <td><a href="https://balham.theplanetarium.org/" class="text-dark">Planet Balham</a></td>
-              <td>The planet of Balham</td>
-              <td><a href="https://github.com/davorg/planetbalham" class="text-dark">planetbalham</a></td>
+              <td><a href="[% p.page %]" class="text-dark">[% p.name %]</a></td>
+              <td>[% p.desc %]</td>
+              <td><a href="[% p.repo %]" class="text-dark">[% p.code %]</a></td>
             </tr>
-            <tr>
-              <td><a href="https://davorg.theplanetarium.org/" class="text-dark">Planet Davorg</a></td>
-              <td>The planet of davorg-related stuff</td>
-              <td><a href="https://github.com/davorg/planetdavorg" class="text-dark">planetdavorg</a></td>
-            </tr>
-            <tr>
-              <td><a href="https://drwho.theplanetarium.org/" class="text-dark">Planet Drwho</a></td>
-              <td>News and information about Doctor Who</td>
-              <td><a href="https://github.com/davorg/planetdrwho" class="text-dark">planetdrwho</a></td>
-            </tr>
-            <tr>
-              <td><a href="https://perl.theplanetarium.org/" class="text-dark">Planet Perl</a></td>
-              <td>Perlanet configuration for a Perl Planet</td>
-              <td><a href="https://github.com/davorg/planetperl" class="text-dark">planetperl</a></td>
-            </tr>
-            <tr>
-              <td><a href="https://skeptic.theplanetarium.org/" class="text-dark">Planet Skeptic</a></td>
-              <td>The Planet of Skepticism</td>
-              <td><a href="https://github.com/davorg/planetskeptic" class="text-dark">planetskeptic</a></td>
-            </tr>
-            <tr>
-              <td><a href="https://mps.theplanetarium.org/" class="text-dark">Planet Westminster</a></td>
-              <td>A site which aggregates MPs' web feeds</td>
-              <td><a href="https://github.com/davorg/planetwestminster" class="text-dark">planetwestminster</a></td>
-            </tr>
+[% END -%]
           </tbody>
         </table>
 

@@ -1,0 +1,37 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use feature 'say';
+
+use JSON;
+use Template;
+
+my $json = `gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /search/repositories?q=perlanet+in:topics`;
+
+my $repos = JSON->new->decode($json);
+
+my @repos;
+for (@{ $repos->{items} }) {
+  push @repos, {
+    code => $_->{name},
+    name => get_name_from_repo($_->{name}),
+    desc => $_->{description},
+    page => $_->{homepage},
+    repo => $_->{html_url},
+  };
+}
+
+my $tt = Template->new({
+  OUTPUT_PATH  => 'docs',
+  INCLUDE_PATH => 'in',
+});
+
+$tt->process('index.html.tt', { planets => \@repos }, 'index.html')
+  or die $tt->error;
+
+sub get_name_from_repo {
+  my $repo = shift;
+
+  return join ' ', map { ucfirst } ($repo =~ /(planet)(\S+)/);
+}
